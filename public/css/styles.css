@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+header a, nav a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+}
+nav a{
+    font-size: x-large;
+}
+.header, nav{
+    padding: 5px 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+.header{
+    background-color: lightblue;
+}
+nav, nav a{
+    position: sticky; top: 0; z-index: 9;
+}
+nav{
+    background-color: lightsteelblue;
+}
+a{
+    padding: 2.5px;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+a:hover{
+    background-color: lightcoral;
+}
