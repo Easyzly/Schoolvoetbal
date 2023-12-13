@@ -15,18 +15,30 @@
         </div>
     </div>
 
-    <h1>Voetbalteam Aanmaken</h1>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <h1>Voetbalteam Aanmaken:</h1>
+                    <p style="background-color: snow; height: 5px"></p>
+                    <br>
+                    <form method="post" action="{{ route('teams.store') }}">
+                        <label for="teamName">Teamnaam:</label>
+                        <input type="text" id="teamName" name="name" required>
+                    
+                        <input type="hidden" name="creator_id" value="{{ auth()->user()->id }}">
+                        <br>
+                        <button type="submit">Aanmaken</button>
+                    </form>
 
-    <form method="post" action="{{ route('teams.store') }}">
-        @csrf
-    
-        <label for="teamName">Teamnaam:</label>
-        <input type="text" id="teamName" name="name" required>
-    
-        <input type="hidden" name="creator_id" value="{{ auth()->user()->id }}">
-    
-        <button type="submit">Aanmaken</button>
-    </form>
+                    <br>
+                    <p style="background-color: snow; height: 5px"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     @if(auth()->user()->admin)
     
@@ -36,5 +48,7 @@
     <p>You don't have permission to delete a football team.</p>
 
     @endif
+
+                    
 
 </x-app-layout>
