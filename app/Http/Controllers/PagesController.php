@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Team;
 
 class PagesController extends Controller
 {
@@ -15,6 +16,7 @@ class PagesController extends Controller
     }
 
     public function teams(){
-        return view('pages/teams');
+        $teams = Team::all();
+        return view('pages/teams', compact('teams'));
     }
 }
