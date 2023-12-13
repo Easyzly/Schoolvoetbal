@@ -17,13 +17,19 @@ nav a{
     justify-content: space-between;
 }
 .header{
-    background-color: lightblue;
+    background-color: rgb(17, 24, 39);
 }
 nav, nav a{
     position: sticky; top: 0; z-index: 9;
 }
+
 nav{
-    background-color: lightsteelblue;
+    background-color: rgb(31, 41, 55);
+}
+
+main{
+    background-color: rgb(239, 246, 255);
+    min-height: 88vh;
 }
 a{
     padding: 2.5px;
@@ -32,4 +38,24 @@ a{
 }
 a:hover{
     background-color: lightcoral;
+}
+
+/* Widgets */
+.widgetholder{
+    background-color: rgb(226, 226, 226);
+    margin: 10vh 30vw;
+    padding: 1vw;
+    border-radius: 30px;
+}
+
+.widget{
+    border-radius: 15px;
+    background-color: rgb(219, 219, 219);
+    text-align: center;
+    padding: 1vw;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
 }

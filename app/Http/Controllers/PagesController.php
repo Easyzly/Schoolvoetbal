@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function events(){
-        return view('pages/events');
+    public function games(){
+        return view('pages/games');
     }
 
     public function home(){
         return view('pages/home');
     }
 
-    public function testroute(){
-        return view('pages/testroute');
+    public function teams(){
+        return view('pages/teams');
     }
 }
