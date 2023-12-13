@@ -22,8 +22,15 @@ class PagesController extends Controller
 
     public function deleteTeam(Team $team)
     {
-    $team->delete();
-
-    return redirect()->back()->with('success', 'Team deleted successfully');
+        // Retrieve the team before deletion
+        $teamToDelete = Team::find($team->id);
+    
+        // Delete the team
+        $teamToDelete->delete();
+    
+        // You can now use $teamToDelete to access the team data before deletion if needed
+    
+        return redirect()->back()->with('success', 'Team deleted successfully');
     }
+    
 }

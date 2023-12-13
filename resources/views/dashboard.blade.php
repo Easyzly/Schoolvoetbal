@@ -23,6 +23,7 @@
                         <p style="background-color: snow; height: 5px"></p>
                         <br>
                         <form method="post" action="{{ route('teams.store') }}">
+                            @csrf
                             <label for="teamName">Teamnaam:</label>
                             <input type="text" id="teamName" name="name" required>
 
