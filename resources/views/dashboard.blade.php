@@ -14,4 +14,17 @@
             </div>
         </div>
     </div>
+
+    <h1>Voetbalteam Aanmaken</h1>
+
+    <form method="post" action="{{ route('teams.store') }}">
+        @csrf
+    
+        <label for="teamName">Teamnaam:</label>
+        <input type="text" id="teamName" name="name" required>
+    
+        <input type="hidden" name="creator_id" value="{{ auth()->user()->id }}">
+    
+        <button type="submit">Aanmaken</button>
+    </form>
 </x-app-layout>

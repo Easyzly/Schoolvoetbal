@@ -1,22 +1,30 @@
 <?php
+// app/Http/Controllers/TeamController.php
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function create()
-    {
-        return view('create-team');
-    }
-
     public function store(Request $request)
     {
+        // Validate the form data
         $request->validate([
-            'teamName' => 'required|string|max:50',
+            'name' => 'required|string|max:255',
+            'creator_id' => 'required|exists:users,id',
         ]);
 
-        return redirect()->route('teams.create')->with('success', 'Team is aangemaakt!');
+        // Create a new team
+        $team = Team::create([
+            'name' => $request->input('name'),
+            'points' => 0,
+            'creator_id' => $request->input('creator_id'),
+        ]);
+
+        // You can add any additional logic here, e.g., redirect to a success page
+
+        return redirect()->route('teams')->with('success', 'Team created successfully');
     }
 }

@@ -17,7 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('points');
             $table->unsignedBigInteger('creator_id');
             $table->foreign('creator_id')->references('id')->on('users');
-        });   
+            $table->timestamps();
+        });
+        
     }
 
     /**
