@@ -43,10 +43,6 @@
     @if(auth()->user()->admin)
     
     
-    
-    @else
-    <p>You don't have permission to delete a football team.</p>
-
     @endif
 
                     
