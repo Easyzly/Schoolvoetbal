@@ -19,4 +19,11 @@ class PagesController extends Controller
         $teams = Team::all();
         return view('pages/teams', compact('teams'));
     }
+
+    public function deleteTeam(Team $team)
+    {
+    $team->delete();
+
+    return redirect()->back()->with('success', 'Team deleted successfully');
+    }
 }

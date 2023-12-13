@@ -44,16 +44,30 @@
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         @foreach($teams as $team)
-                        <tr>
-                            <td>{{ $team->name }}</td>
-                            <td>{{ $team->points }}</td>
-                        </tr>
-                        @endforeach
+    <tr>
+        <td>{{ $team->name }}</td>
+        <td>{{ $team->points }}</td>
+        <td>
+            <a href="{{ route('teams.delete', ['team' => $team]) }}" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $team->id }}').submit();">
+                <ion-icon name="trash-outline"></ion-icon>
+            </a>
+            <form id="delete-form-{{ $team->id }}" action="{{ route('teams.delete', ['team' => $team]) }}" method="POST" style="display: none;">
+                @csrf
+                @method('DELETE')
+            </form>
+        </td>
+    </tr>
+@endforeach
+
                 </div>
             </div>
         </div>
     @endif
 
                     
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
 
 </x-app-layout>

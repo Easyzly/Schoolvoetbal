@@ -40,5 +40,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/team/create', [TeamController::class, 'create'])->name('teams.create');
 Route::post('/team', [TeamController::class, 'store'])->name('teams.store');
 
+Route::get('/teams/{team}/delete', 'PagesController@deleteTeam')->name('teams.delete');
 
 require __DIR__.'/auth.php';
