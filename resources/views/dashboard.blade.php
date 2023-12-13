@@ -38,15 +38,20 @@
         </div>
     </div>
 
-
-
     @if(auth()->user()->admin)
-    
-    
-    
-    @else
-    <p>You don't have permission to delete a football team.</p>
-
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        @foreach($teams as $team)
+                        <tr>
+                            <td>{{ $team->name }}</td>
+                            <td>{{ $team->points }}</td>
+                        </tr>
+                        @endforeach
+                </div>
+            </div>
+        </div>
     @endif
 
                     

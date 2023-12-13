@@ -3,6 +3,7 @@
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
+use App\Models\Team;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,8 @@ Route::get('/teams', [PagesController::class, 'teams'])->name('teams');
 Route::get('/wedstrijden', [PagesController::class, 'games'])->name('games');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $teams = Team::all();
+    return view('dashboard', compact('teams'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
