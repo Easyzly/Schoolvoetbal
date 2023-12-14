@@ -115,7 +115,7 @@
                             <div class="p-6 text-gray-900 dark:text-gray-100">
                                 <h1>Wedstrijd pool maken</h1>
                                     <p style="background-color: snow; height: 5px"></p>
-                                        <form method="post" action="{{ route('teams.generateRandomPool') }}">
+                                        <form method="post" action="{{ route('games.generateRandomPool') }}">
                                             @csrf
                                             <button type="submit">Genereer Willekeurige Team Pool</button>
                                         </form>

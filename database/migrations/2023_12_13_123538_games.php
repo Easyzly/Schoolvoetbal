@@ -24,7 +24,10 @@ return new class extends Migration
             $table->unsignedBigInteger('team1_score');
             $table->unsignedBigInteger('team2_score');
             $table->string('field');
-            $table->foreign('referee_id')->references('id')->on('users');
+           /*  $table->foreign('referee_id')->references('id')->on('users'); */
+           $table->unsignedBigInteger('referee_id')->default(0); // or any other default value
+
+           
             $table->dateTime('time');
             $table->timestamps();
         });   

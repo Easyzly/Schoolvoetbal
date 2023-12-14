@@ -3,6 +3,7 @@
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\GameController;
 use App\Models\Team;
 use App\Models\Game;
 
@@ -49,6 +50,7 @@ Route::put('/games/update/{game}', [PagesController::class, 'updateGame'])->name
 
 
 
-Route::post('/teams/generateRandomPool', [PagesController::class, 'generateRandomPool'])->name('teams.generateRandomPool');
+Route::get('/games', [GameController::class, 'showMatches'])->name('games.showMatches');
+Route::post('/games/generateRandomPool', [GameController::class, 'generateRandomPool'])->name('games.generateRandomPool');
 
 require __DIR__.'/auth.php';
