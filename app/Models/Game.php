@@ -27,18 +27,18 @@ class Game extends Model
     /**
      * Get the first team in the game.
      */
-    public function team1()
+    public function homeTeam()
     {
         return $this->belongsTo(Team::class, 'team1_id');
-    }
+    }    
 
     /**
      * Get the second team in the game.
      */
-    public function team2()
-    {
-        return $this->belongsTo(Team::class, 'team2_id');
-    }
+    public function awayTeam()
+{
+    return $this->belongsTo(Team::class, 'team2_id');
+}
 
     /**
      * Get the referee for the game.
