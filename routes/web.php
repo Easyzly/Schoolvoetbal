@@ -48,4 +48,8 @@ Route::get('/pages/edit/game/{game}', [PagesController::class, 'SendGame'])->nam
 Route::put('/games/update/{game}', [PagesController::class, 'updateGame'])->name('games.update');
 
 
+
+Route::post('/teams/generateRandomPool', 'PagesController@generateRandomPool')->name('teams.generateRandomPool');
+
+
 require __DIR__.'/auth.php';

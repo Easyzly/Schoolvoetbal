@@ -28,6 +28,10 @@ class PagesController extends Controller
         return redirect()->back()->with('success', 'Team deleted successfully');
     }
 
+    public function generateRandomPool()
+        {
+            return redirect()->back()->with('success', 'Random team pool generated successfully');
+        }
     public function deleteGame(Game $game)
     {
         $gameToDelete = Game::find($game->id);
