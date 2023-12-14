@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use App\Models\Game;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class PagesController extends Controller
 {
@@ -60,6 +61,8 @@ class PagesController extends Controller
         // Update other fields as needed
     ]);
 
-    return view('dashboard', compact('game', 'team'));
+    $teams = Team::all();
+    $games = Game::all();
+    return view('dashboard', compact('teams', 'games'));
 }
 }
