@@ -77,7 +77,10 @@
                                 <p style="background-color: snow; height: 5px"></p>
                                 @foreach ($games as $game)
                                 <tr>
-                                    <td>{{ $game->team1_id }}</td>
+                                    <td>
+                                        {{ $game->team1->name }} vs {{ $game->team2->name }} | {{ $game->team1_score }} vs {{ $game->team2_score }} | 
+                                    </td>
+                          
                                     <td>
                                         <a href="{{ route('games.delete', ['game' => $game]) }}"
                                             onclick="event.preventDefault(); document.getElementById('delete-form-{{ $game->id }}').submit();">
