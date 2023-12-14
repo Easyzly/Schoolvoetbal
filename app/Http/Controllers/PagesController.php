@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\Game;
 
 class PagesController extends Controller
 {
@@ -22,14 +23,8 @@ class PagesController extends Controller
 
     public function deleteTeam(Team $team)
     {
-        // Retrieve the team before deletion
         $teamToDelete = Team::find($team->id);
-    
-        // Delete the team
         $teamToDelete->delete();
-    
-        // You can now use $teamToDelete to access the team data before deletion if needed
-    
         return redirect()->back()->with('success', 'Team deleted successfully');
     }
 
@@ -37,5 +32,11 @@ class PagesController extends Controller
         {
             return redirect()->back()->with('success', 'Random team pool generated successfully');
         }
+    public function deleteGame(Game $game)
+    {
+        $gameToDelete = Game::find($game->id);
+        $gameToDelete->delete();
+        return redirect()->back()->with('success', 'Game deleted successfully');
+    }
     
 }
