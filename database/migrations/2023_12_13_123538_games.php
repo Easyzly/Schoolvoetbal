@@ -17,10 +17,8 @@ return new class extends Migration
             // First create!!
             $table->unsignedBigInteger('team1_id');
             $table->unsignedBigInteger('team2_id');
-            $table->unsignedBigInteger('referee_id');
-
-            $table->foreign('team1_id')->references('id')->on('teams');
-            $table->foreign('team2_id')->references('id')->on('teams');
+            $table->foreign('team1_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->foreign('team2_id')->references('id')->on('teams')->onDelete('cascade');
             $table->unsignedBigInteger('team1_score');
             $table->unsignedBigInteger('team2_score');
             $table->string('field');

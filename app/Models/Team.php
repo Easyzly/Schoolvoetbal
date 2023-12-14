@@ -27,4 +27,14 @@ class Team extends Model
     {
         return $this->belongsTo(User::class, 'creator_id');
     }
+
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
+    public function goals()
+    {
+        return $this->hasMany(Goal::class);
+    }
 }

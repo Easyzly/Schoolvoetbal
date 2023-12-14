@@ -16,9 +16,9 @@ return new class extends Migration
 
             // First create!!
             $table->unsignedBigInteger('player_id');
+            $table->unsignedBigInteger('team_id');
             $table->unsignedBigInteger('match_id');
-
-
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->foreign('player_id')->references('id')->on('users');
             $table->foreign('match_id')->references('id')->on('games');
             $table->dateTime('time');
