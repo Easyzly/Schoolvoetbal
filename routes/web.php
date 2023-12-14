@@ -3,7 +3,7 @@
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
-use App\Http\Controllers\GameController;
+use App\Http\Controllers\GamesController;
 use App\Models\Team;
 use App\Models\Game;
 
@@ -48,9 +48,8 @@ Route::delete('/games/{game}', [PagesController::class, 'deleteGame'])->name('ga
 Route::get('/pages/edit/game/{game}', [PagesController::class, 'SendGame'])->name('games.send');
 Route::put('/games/update/{game}', [PagesController::class, 'updateGame'])->name('games.update');
 
+Route::get('/games', [GamesController::class, 'showMatches'])->name('games.showMatches');
+Route::match(['get', 'post'], '/games/generateRandomPool', [GamesController::class, 'generateRandomPool'])->name('games.generateRandomPool');
 
-
-Route::get('/games', [GameController::class, 'showMatches'])->name('games.showMatches');
-Route::post('/games/generateRandomPool', [GameController::class, 'generateRandomPool'])->name('games.generateRandomPool');
 
 require __DIR__.'/auth.php';

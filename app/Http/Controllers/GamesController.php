@@ -6,13 +6,13 @@ use App\Models\Game;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
-class GameController extends Controller
+class GamesController extends Controller
 {
     public function generateRandomPool()
     {
         $teams = Team::all();
 
-        Game::truncate();
+        Game::query()->delete();
 
         $totalTeams = count($teams);
 
