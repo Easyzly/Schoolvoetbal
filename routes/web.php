@@ -4,6 +4,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Models\Team;
+use App\Models\Game;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,8 @@ Route::get('/wedstrijden', [PagesController::class, 'games'])->name('games');
 
 Route::get('/dashboard', function () {
     $teams = Team::all();
-    return view('dashboard', compact('teams'));
+    $games = Game::all();
+    return view('dashboard', compact('teams', 'games'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -41,5 +43,7 @@ Route::get('/team/create', [TeamController::class, 'create'])->name('teams.creat
 Route::post('/team', [TeamController::class, 'store'])->name('teams.store');
 
 Route::delete('/teams/{team}', [PagesController::class, 'deleteTeam'])->name('teams.delete');
+Route::delete('/games/{game}', [PagesController::class, 'deleteGame'])->name('games.delete');
+
 
 require __DIR__.'/auth.php';
