@@ -45,6 +45,7 @@
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100">
                             @foreach ($teams as $team)
+                            <h1>Voetbalteam Verwijderen:</h1>
                                 <tr>
                                     <td>{{ $team->name }}</td>
                                     <td>{{ $team->points }}</td>
@@ -59,10 +60,27 @@
                                             @csrf
                                             @method('DELETE')
                                         </form>
+
                                     </td>
                                 </tr>
                             @endforeach
 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-12">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-6 text-gray-900 dark:text-gray-100">
+                                <h1>Wedstrijd pool maken</h1>
+                                <p style="background-color: snow; height: 5px"></p>
+                                <form method="post" action="{{ route('teams.generateRandomPool') }}">
+                                    @csrf
+                                    <button type="submit">Genereer Willekeurige Team Pool</button>
+                                </form>
+                                <p style="background-color: snow; height: 5px"></p>
+                            </div>
                         </div>
                     </div>
                 </div>

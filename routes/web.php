@@ -42,4 +42,8 @@ Route::post('/team', [TeamController::class, 'store'])->name('teams.store');
 
 Route::delete('/teams/{team}', [PagesController::class, 'deleteTeam'])->name('teams.delete');
 
+
+Route::post('/teams/generateRandomPool', 'PagesController@generateRandomPool')->name('teams.generateRandomPool');
+
+
 require __DIR__.'/auth.php';
