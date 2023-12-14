@@ -44,6 +44,8 @@ Route::post('/team', [TeamController::class, 'store'])->name('teams.store');
 
 Route::delete('/teams/{team}', [PagesController::class, 'deleteTeam'])->name('teams.delete');
 Route::delete('/games/{game}', [PagesController::class, 'deleteGame'])->name('games.delete');
+Route::get('/pages/edit/game/{game}', [PagesController::class, 'SendGame'])->name('games.send');
+Route::put('/games/update/{game}', [PagesController::class, 'updateGame'])->name('games.update');
 
 
 

@@ -57,4 +57,27 @@ class PagesController extends Controller
         return redirect()->back()->with('success', 'Game deleted successfully');
     }
     
+    public function SendGame(Game $game)
+    {
+        return view('pages/edit/game', compact('game'));
+    }
+
+    public function updateGame(Request $request, Game $game)
+{
+    // Validate the form data
+    $request->validate([
+        'team1_score' => 'required|numeric',
+        'team2_score' => 'required|numeric',
+        // Add validation rules for other fields as needed
+    ]);
+
+    // Update the game with the form data
+    $game->update([
+        'team1_score' => $request->input('team1_score'),
+        'team2_score' => $request->input('team2_score'),
+        // Update other fields as needed
+    ]);
+
+    return view('dashboard', compact('game', 'team'));
+}
 }

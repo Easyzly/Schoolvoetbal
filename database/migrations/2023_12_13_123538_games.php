@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('field');
             $table->foreign('referee_id')->references('id')->on('users');
             $table->dateTime('time');
+            $table->timestamps();
         });   
     }
 

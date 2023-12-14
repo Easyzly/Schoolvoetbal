@@ -90,6 +90,18 @@
                                             @method('DELETE')
                                         </form>
                                     </td>
+                                    <td>
+                                        <a href="{{ route('games.send', ['game' => $game]) }}"
+                                            onclick="event.preventDefault(); document.getElementById('send-form-{{ $game->id }}').submit();">
+                                            <ion-icon name="pencil-outline"></ion-icon>
+                                        </a>
+                                        <form id="send-form-{{ $game->id }}"
+                                            action="{{ route('games.send', ['game' => $game]) }}" method="GET"
+                                            style="display: none;">
+                                            @csrf
+                                            @method('SELECT')
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                                 <p style="background-color: snow; height: 5px"></p>

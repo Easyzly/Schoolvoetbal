@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign('player_id')->references('id')->on('users');
             $table->foreign('match_id')->references('id')->on('games');
             $table->dateTime('time');
+            $table->timestamps();
         }); 
     }
 
