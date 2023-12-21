@@ -16,8 +16,12 @@ class GamesController extends Controller
 
         $totalTeams = count($teams);
 
+        $delayMinutes = 120; // Set the delay in minutes
+
         for ($i = 0; $i < $totalTeams - 1; $i++) {
             for ($j = $i + 1; $j < $totalTeams; $j++) {
+                $gameTime = now()->addMinutes($i * $delayMinutes + $j * $delayMinutes);
+
                 $game = new Game([
                     'team1_id' => $teams[$i]->id,
                     'team2_id' => $teams[$j]->id,
@@ -25,12 +29,13 @@ class GamesController extends Controller
                     'team1_score' => 0,
                     'team2_score' => 0,
                     'field' => 'Field A',  
-                    'time' => now(),  
+                    'time' => $gameTime,  
                 ]);
 
                 $game->save();
             }
         }
+
 
         return redirect()->back()->with('success', 'Random team pool and schedule generated successfully');
     }
