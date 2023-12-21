@@ -22,10 +22,15 @@
                         <h1>Voetbalteam Aanmaken:</h1>
                         <p style="background-color: snow; height: 5px"></p>
                         <br>
-                        <form method="post" action="{{ route('teams.store') }}">
+                        <form method="post" action="{{ route('teams.store') }}" enctype="multipart/form-data">
                             @csrf
                             <label for="teamName">Teamnaam:</label>
                             <input type="text" id="teamName" name="name" required>
+
+                            <div class="form-group">
+                                <label for="image">Item Image:</label>
+                                <input type="file" name="image" id="image">
+                            </div>
 
                             <input type="hidden" name="creator_id" value="{{ auth()->user()->id }}">
                             <br>

@@ -18,6 +18,7 @@ class Team extends Model
         'name',
         'points',
         'creator_id',
+        'image'
     ];
 
     /**

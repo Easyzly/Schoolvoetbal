@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreign('creator_id')->references('id')->on('users');
             $table->timestamps();
         });
-        
+
+        DB::statement("ALTER TABLE teams ADD image MEDIUMBLOB");
     }
 
     /**
