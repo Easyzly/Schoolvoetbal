@@ -12,12 +12,15 @@ class PagesController extends Controller
 {
     public function games()
     {
-        return view('pages/games');
+        $games = Game::all();
+        return view('pages/games', compact('games'));
     }
 
     public function home()
     {
-        return view('pages/home');
+        $teams = Team::all();
+        $games = Game::all();
+        return view('pages/home', compact('teams', 'games'));
     }
 
     public function teams()

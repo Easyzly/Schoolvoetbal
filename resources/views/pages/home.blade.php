@@ -3,13 +3,16 @@
 @section('content')
 <div class="widgetholder">
     <h1>Komende Wedstrijden:</h1>
+    @foreach($games as $game)
     <div class="widget">
-        <h2>Curio Studenten | Norbertus Gertrudis College</h2>
+        <h2>{{ $game->team1_score }} / {{ $game->team2_score }}</h2>
+
         <div class="info">
-            <p>12/12/2012</p>
-            <p>14:30 - 16:00</p>
-            <p>Locatie: Roosendaal Knipplein 14</p>
+            <p>{{ $game->team1->name }} vs {{ $game->team2->name }}</p>
+            <p>{{ $game->field}} | {{ $game->time }}</p>
         </div>
     </div>
+    @endforeach
+
 </div>
 @endsection
