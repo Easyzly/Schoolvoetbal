@@ -44,6 +44,28 @@
             </div>
         </div>
 
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h1>Spelers Toevoegen</h1>
+                        <p style="background-color: snow; height: 5px"></p>
+                            <label for="userDropdown" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                Selecteer een gebruiker:
+                            </label>
+                            <select style="color:black">
+                                @foreach ($users as $user)
+                                    <option style="color:black" value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        <p style="background-color: snow; height: 5px"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         @if (auth()->user()->admin)
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
